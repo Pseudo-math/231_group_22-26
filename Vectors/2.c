@@ -15,7 +15,7 @@ int main() {
     del(numbers);
 
     for (int x : numbers) {
-        std::cout << numbers[i] << " ";
+        std::cout << x << " ";
     }
 
     return 0;
