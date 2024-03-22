@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 
-std::vector<int> concat(const std::vector<int>& vec1, const std::vector<int>& vec2) {
+std::vector<int> concat(std::vector<int> & vec1, std::vector<int> & vec2) {
     std::vector<int> result = vec1;
     result.insert(result.end(), vec2.begin(), vec2.end());
     return result;
@@ -13,8 +13,8 @@ int main() {
 
     std::vector<int> concatenated = concat(vec1, vec2);
 
-    for (const auto& num : concatenated) {
-        std::cout << num << " ";
+    for (int x : concatenated) {
+        std::cout << x << " ";
     }
 
     return 0;
