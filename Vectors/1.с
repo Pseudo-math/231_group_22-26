@@ -15,8 +15,8 @@ int main() {
     std::vector<int> numbers = {1, 2, 3, 4, 5};
     enlarge(numbers);
 
-    for (int i = 0; i < numbers.size(); ++i) {
-        std::cout << numbers[i] << " ";
+    for (int x : numbers) {
+        std::cout << x << " ";
     }
 
     return 0;
