@@ -14,7 +14,7 @@ int main() {
 
     del(numbers);
 
-    for (int i = 0; i < numbers.size(); ++i) {
+    for (int x : numbers) {
         std::cout << numbers[i] << " ";
     }
 
