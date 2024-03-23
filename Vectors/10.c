@@ -9,7 +9,7 @@ void find_index(std::vector<double> & vec, double x, int & i, int & j) {
         i = distance(vec.begin(), elem);
         j = i;
     }
-    if (lower == vec.end()) {
+    else if (lower == vec.end()) {
         i = vec.size() - 1;
         j = vec.size();
     } else if (lower == vec.begin()) {
