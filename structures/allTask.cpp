@@ -20,7 +20,7 @@ struct Polynomial
     }
     float & coef(int i)
     {
-        return &coeficents[i];
+        return coeficents[i];
     }
     double Value(double point)
     {
