@@ -32,5 +32,9 @@ struct Polynomial
         }
         return s;
     }
+    ~Polynomial()
+    {
+        delete[] coeficents;
+    }
     
 };
