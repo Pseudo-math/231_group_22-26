@@ -14,10 +14,13 @@ struct Polynomial
     }
     Polynomial(int n, float arr[])
     {
-        
         deg = n;
         coeficents = new float[n + 1];
         for (int i = 0; i <= deg; ++i) coeficents[i] = arr[i];
+    }
+    float & coef(int i)
+    {
+        return &coeficents[i];
     }
     double Value(double point)
     {
@@ -29,4 +32,5 @@ struct Polynomial
         }
         return s;
     }
+    
 };
