@@ -36,5 +36,18 @@ struct Polynomial
     {
         delete[] coeficents;
     }
-    
 };
+
+Polynomial operator+ (Polynomial f, Polynomial g)
+{
+    int maxDeg = std::max(f.deg, g.deg);
+    int newDeg;
+    float* resultCoeficents = new float[maxDeg + 1]{0};
+    for (int i = 0; i <= maxDeg; ++i)
+    {
+        if (f.deg <= i) resultCoeficents[i] += f.coeficents[i];
+        if (g.deg <= i) resultCoeficents[i] += g.coeficents[i];
+        if (resultCoeficents[i] != 0) newDeg = i;
+    }
+    return Polynomial(newDeg, resultCoeficents);
+}
