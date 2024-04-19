@@ -66,7 +66,7 @@ Polynomial operator- (Polynomial f, Polynomial g)
 }
 Polynomial operator* (Polynomial f, Polynomial g)
 {
-    int newDeg = f.def + g.deg;
+    int newDeg = f.deg + g.deg;
     float* resultCoeficents = new float[newDeg + 1]{0};
     for (int i = 0; i <= f.deg; ++i) 
     {
