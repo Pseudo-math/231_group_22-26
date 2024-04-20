@@ -36,9 +36,10 @@ struct Polynomial
     {
         delete[] coeficents;
     }
-    Polynomial(Polynomial&& other) : degree(other.degree), coefficients(other.coefficients) {
-        other.degree = 0;
-        other.coefficients = nullptr; // "Обнуляем" перемещаемый объект
+    Polynomial(Polynomial&& other) : deg(other.deg), coeficents(other.coeficents) 
+    {
+        other.deg = 0;
+        other.coeficents = nullptr; // "Обнуляем" перемещаемый объект
     }
 };
 
