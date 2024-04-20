@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include <forward_list>
 using namespace std;
 struct Stack {
     int size;
@@ -31,6 +32,7 @@ struct Stack {
     void Push(int val)
     {
        elements.push_front(val);
+       ++size;
     }
 
     bool IsEmpty()
@@ -45,7 +47,7 @@ bool test(){
               arr->Push(i);
               if (arr->Size() != i+1) return false;
           }
-          if (arr->elements[arr->Size()-1] != 15) return false;
+          if (arr->elements.front() != 15) return false;
           for (int i = 15; i >= 0; --i)
           {
               if (arr->Pop() != i) return false;
@@ -56,5 +58,3 @@ bool test(){
 int main(){
          cout << test();
 }
-
-
