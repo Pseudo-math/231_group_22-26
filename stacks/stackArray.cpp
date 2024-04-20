@@ -1,40 +1,39 @@
 struct Stack {
     int size;
-    int *elements;
+    vector< int > elements;
 
-    public Stack()
+    Stack()
     {
-       elements = new List<T>();
+       elements = new vector <int>;
        size = 0;
     } 
 
-    public int Size() 
+    int Size() 
     {
        return size;
     }
 
-    public T Pop()
+    int Pop()
     {
        if (size != 0)
        {
-           T result = elements[size - 1];
-           elements.RemoveAt(size - 1);
+           int result = elements[size - 1];
+	   elements.erase(elements.begin() + size - 1);
            --size;
            return result;
        }
-       return default(T); // null, если стек пустой
+       return 0;
     }
 	  
-    public void Push(T val)
+    void Push(int val)
     {
-       elements.Add(val);
+       arr.push_back(val);
        ++size;
     }
 
-    public T Peek()
+    bool IsEmpty()
     {
-      if (size != 0) return elements[size - 1];
-      return default(T); // null, если стек пустой
+      return (size == 0);
     }
    }
 
