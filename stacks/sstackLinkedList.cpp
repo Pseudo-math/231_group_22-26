@@ -20,8 +20,8 @@ struct Stack {
     {
        if (size != 0)
        {
-           int result = elements[size - 1];
-           elements.erase(elements.begin() + size - 1);
+           int result = elements.front();
+           elements.pop_front();
            --size;
            return result;
        }
