@@ -21,7 +21,7 @@ struct Stack {
        if (size != 0)
        {
            int result = elements[size - 1];
-	         elements.erase(elements.begin() + size - 1);
+           elements.erase(elements.begin() + size - 1);
            --size;
            return result;
        }
@@ -30,7 +30,7 @@ struct Stack {
 	  
     void Push(int val)
     {
-       elements.push_back(val);
+       elements.push_front(val);
     }
 
     bool IsEmpty()
