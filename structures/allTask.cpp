@@ -41,6 +41,17 @@ struct Polynomial
         other.deg = 0;
         other.coeficents = nullptr; // "Обнуляем" перемещаемый объект
     }
+    Polynomial & operator=(Polynomial&& other)
+    {
+        if (this != &other) {
+            delete[] coeficents;
+            degree = other.deg;
+            coeficents = other.coeficents;
+            other.deg = 0;
+            other.coeficents = nullptr; 
+        }
+        return *this;
+    }
 };
 
 Polynomial operator+ (Polynomial f, Polynomial g)
