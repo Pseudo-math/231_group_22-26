@@ -22,7 +22,7 @@ struct Polynomial
     {
         return coeficents[i];
     }
-    double Value(double point)
+    double Value(double point) const
     {
         double s = coeficents[deg];
         for (int i = 1; i <= deg; ++i)
@@ -62,7 +62,7 @@ struct Polynomial
     }
 };
 
-Polynomial operator+ (Polynomial f, Polynomial g)
+Polynomial operator+ (const Polynomial & f, const Polynomial & g)
 {
     int maxDeg = std::max(f.deg, g.deg);
     int newDeg;
