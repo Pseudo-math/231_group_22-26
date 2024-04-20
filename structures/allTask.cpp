@@ -52,6 +52,14 @@ struct Polynomial
         }
         return *this;
     }
+    double operator()(double x) const 
+    {
+        double result = 0;
+        for (int i = deg; i >= 0; --i) {
+            result = result * x + coeficents[i];
+        }
+        return result;
+    }
 };
 
 Polynomial operator+ (Polynomial f, Polynomial g)
