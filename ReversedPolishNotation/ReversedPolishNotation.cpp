@@ -2,6 +2,9 @@
 #include <cstdlib>
 #include <clocale>
 #include <stack>
+#include <string>
+#include <cctype>
+
 using namespace std;
 int main()
 {
@@ -54,5 +57,44 @@ int PostfixOperations(const std::string& str) {
     }
     return 0; // Возвращаем 0, если стек пуст
 }
+---------------------------------------------------------------------------
+// Функция для определения приоритета оператора
+int priority(char op) {
+    if (op == '+' || op == '-') return 1;
+    if (op == '*' || op == '/') return 2;
+    return 0;
+}
 
-      
+void f1() {
+    std::string infix, postfix;
+    std::stack<char> operators;
+    std::cout << "Введите выражение в инфиксной нотации: ";
+    std::getline(std::cin, infix);
+
+    for (char c : infix) {
+        if (isalnum(c)) {  // Если символ - операнд (число или буква)
+            postfix += c;
+        } else if (c == '(') {
+            operators.push(c);
+        } else if (c == ')') {
+            while (!operators.empty() && operators.top() != '(') {
+                postfix += operators.top();
+                operators.pop();
+            }
+            operators.pop();  // Удаляем открывающую скобку
+        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+            while (!operators.empty() && priority(operators.top()) >= priority(c)) {
+                postfix += operators.top();
+                operators.pop();
+            }
+            operators.push(c);
+        }
+    }
+
+    while (!operators.empty()) {
+        postfix += operators.top();
+        operators.pop();
+    }
+
+    std::cout << "Выражение в обратной польской нотации: " << postfix << std::endl;
+}
