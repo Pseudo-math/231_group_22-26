@@ -66,10 +66,10 @@ int priority(char op) {
 }
 
 void f1() {
-    std::string infix, postfix;
-    std::stack<char> operators;
-    std::cout << "Введите выражение в инфиксной нотации: ";
-    std::getline(std::cin, infix);
+    string infix, postfix;
+    stack<char> operators;
+    cout << "Введите выражение в инфиксной нотации: ";
+    getline(std::cin, infix);
 
     for (char c : infix) {
         if (isalnum(c)) {  // Если символ - операнд (число или буква)
