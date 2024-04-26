@@ -8,49 +8,51 @@ int main()
   return EXIT_SUCCESS;
 }
 
-      
-int PostfixOperations(string str)
-{
-    Stack<string> buffer = new Stack<string>();
-    Stack<int> result = new Stack<int>();
-    string temp = "";
-    char[] operations = {'+', '*', '-', '/', '='};
-    for (int i = str.Length - 1; i >= 0; --i)
-    {
-      if (Char.IsDigit(str[i]))
-      {
-          temp = str[i] + temp;
-          if (i == 0) buffer.Push(temp);
-      }
-      else if (str[i] == ' ' && temp != "")
-      {
-          buffer.Push(temp);
-          temp = "";
-      }
-      else foreach (char j in operations)
-      {
-          if (str[i] == j)
-          {
-              buffer.Push(str[i].ToString());
-              break;
-          }
-      }
-    }
-    for (int i = buffer.Size(); i > 0; --i)
-    {
-        temp = buffer.Pop();
-        int number;
-        if (int.TryParse(temp, out number)) result.Push(number);
-        else if (temp == "=") return result.Pop();
-        else
-        {
-            int numberSecond = result.Pop(), numberFirst = result.Pop();
-            if (i == "+") result.Push(numberFirst + numberSecond);
-            if (i == "-") result.Push(numberFirst - numberSecond);
-            if (i == "*") result.Push(numberFirst * numberSecond);
-            if (i == "/") result.Push(numberFirst / numberSecond);
+int PostfixOperations(const std::string& str) {
+    std::stack<std::string> buffer;
+    std::stack<int> result;
+    std::string temp;
+    char operations[] = {'+', '*', '-', '/', '='};
+
+    for (int i = str.length() - 1; i >= 0; --i) {
+        if (isdigit(str[i])) {
+            temp = str[i] + temp;
+            if (i == 0) buffer.push(temp);
+        } else if (str[i] == ' ' && !temp.empty()) {
+            buffer.push(temp);
+            temp = "";
+        } else {
+            for (char j : operations) {
+                if (str[i] == j) {
+                    buffer.push(std::string(1, str[i]));
+                    break;
+                }
+            }
         }
     }
-    return default(int);
+
+    while (!buffer.empty()) {
+        temp = buffer.top();
+        buffer.pop();
+        int number;
+
+        if (std::stoi(temp, nullptr) || temp == "0") { // Проверяем, является ли строка числом
+            result.push(std::stoi(temp));
+        } else if (temp == "=") {
+            return result.top();
+        } else {
+            int numberSecond = result.top();
+            result.pop();
+            int numberFirst = result.top();
+            result.pop();
+
+            if (temp == "+") result.push(numberFirst + numberSecond);
+            else if (temp == "-") result.push(numberFirst - numberSecond);
+            else if (temp == "*") result.push(numberFirst * numberSecond);
+            else if (temp == "/") result.push(numberFirst / numberSecond);
+        }
+    }
+    return 0; // Возвращаем 0, если стек пуст
 }
+
       
