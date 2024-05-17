@@ -8,6 +8,9 @@
 using namespace std;
 int main()
 {
+  string infix;
+  getline(std::cin, infix);
+  cout << PostfixOperations(Transform(infix));
   return EXIT_SUCCESS;
 }
 
@@ -65,8 +68,8 @@ int priority(char op) {
     return 0;
 }
 
-void f1() {
-    string infix, postfix;
+string Transform(string infix) {
+    string postfix;
     stack<char> operators;
     cout << "Введите выражение в инфиксной нотации: ";
     getline(std::cin, infix);
@@ -89,6 +92,7 @@ void f1() {
             }
             operators.push(c);
         }
+    
     }
 
     while (!operators.empty()) {
@@ -96,5 +100,5 @@ void f1() {
         operators.pop();
     }
 
-    std::cout << "Выражение в обратной польской нотации: " << postfix << std::endl;
+    return postfix;
 }
