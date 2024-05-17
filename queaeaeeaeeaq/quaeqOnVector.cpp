@@ -1,37 +1,37 @@
 #include <iostream>
 #include <vector>
 
+template <typename T>
 class Queue {
 private:
-    std::vector<int> arr;
-    int frontIndex;
+    std::vector<T> elements;
 
 public:
-    Queue(int size = 1000) : arr(size), frontIndex(0) {}
+    Queue() {}
+    ~Queue() 
+    {
+        vector<T>().swap(elements);
+    };
+    void Enqueue(const T item) {
+        elements.insert(elements.begin(), item);
+    };
 
-    int pop() {
-        if (isEmpty()) {
-            std::cerr << "Queue is empty" << std::endl;
-            return -1;
+    T Dequeue() {
+        if (!elements.empty()) {
+            T result = elements.back();
+            elements.pop_back();
+            return result;
         }
-        return arr[frontIndex++];
-    }
-
-    void push(int x) {
-        if (size() >= arr.capacity()) {
-            std::cerr << "No space left in the queue" << std::endl;
-            return;
-        }
-        arr.push_back(x);
-    }
-
-    int size() const {
-        return arr.size() - frontIndex;
-    }
-
-    bool isEmpty() const {
-        return size() == 0;
-    }
+        return T(); 
+    };
+    int IsEmpty()
+    {
+        return elements.empty();
+    }; 
+    Size() const 
+    {
+        return elements.size();
+    };
 };
 
 int main() {
