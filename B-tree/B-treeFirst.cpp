@@ -28,6 +28,15 @@ BNode* findLeftGrandson(BNode* root) {
 
     return nullptr; // Если дошли до сюда, значит у корня нет левых внуков
 }
+BNode* LeftRotate(BNode* root) {
+    if (root == nullptr || (root->right == nullptr)) {
+        return root;
+    }
+    BNode* rootSon = root->right;
+    root->right = rootSon->left;
+    rootSon->left = root;
+    return rootSon;
+}
 
 int main() {
     // Создайте примерное дерево для тестирования
