@@ -24,6 +24,8 @@ BNode* findLeftGrandson(BNode* root) {
         if (root->right->left != nullptr) {
             return root->right->left; // Правый сын имеет левого сына (тоже левый внук)
         }
+        else if (root->right->right != nullptr)
+            return root->right->right;
     }
 
     return nullptr; // Если дошли до сюда, значит у корня нет левых внуков
