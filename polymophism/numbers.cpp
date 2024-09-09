@@ -45,9 +45,8 @@ class Three : Two
 {
 	double c;
 public:
-	Three(double x, double y, double z) 
+	Three(double x, double y, double z) : Two(x, y)
 	{
-		Two(x, y);
 		c = study(z);
 	}
 
