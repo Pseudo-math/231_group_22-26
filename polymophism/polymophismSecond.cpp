@@ -33,6 +33,6 @@ public:
 	~BinaryOperation() {
 		delete left;
 		delete right;
-                delete &operation;
+		delete &operation;
 	}
 };
