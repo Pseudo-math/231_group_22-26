@@ -36,7 +36,7 @@ public:
 	}
 
 	void print() {
-		cout << "a = " << a << " b = " << b;
+		cout << "a = " << firstBigNumber << " b = " << secondBigNumber;
 	}
 };
 
