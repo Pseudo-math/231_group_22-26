@@ -41,7 +41,7 @@ public:
 };
 
 
-class Three : Two
+class Three : public Two
 {
 	double thirdBigNumber;
 public:
