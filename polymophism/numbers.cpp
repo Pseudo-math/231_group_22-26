@@ -45,7 +45,7 @@ class Three : public Two
 {
 	double thirdBigNumber;
 public:
-	Three(double x, double y, double z) : Two(x, y) { thirdBigNumber = Two::study(x); };
+	Three(double x, double y, double z) : Two(x, y) { thirdBigNumber = Two::study(z); };
 
 	double study(double x) {
 		double minNumber;
