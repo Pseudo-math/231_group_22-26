@@ -11,12 +11,12 @@ class Two
 public:
 	Two(double x, double y) {
 		if (x > y) {
-			a = x;
-			b = y;
+			firstBigNumber = x;
+			secondBigNumber = y;
 		}
 		else {
-			a = y;
-			b = x;
+			firstBigNumber = y;
+			secondBigNumber = x;
 		}
 	}
 
