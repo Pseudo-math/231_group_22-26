@@ -25,14 +25,14 @@ public:
 	  double evaluate() {
 		double x = left->evaluate();
 		double y = right->evaluate();
-		if (oper == '+') return x + y;
-		if (oper == '-') return x - y;
-		if (oper == '*') return x * y;
-		if (oper == '/') return x / y;
+		if (operation == '+') return x + y;
+		if (operation == '-') return x - y;
+		if (operation == '*') return x * y;
+		if (operation == '/') return x / y;
 	}
 	~BinaryOperation() {
 		delete left;
 		delete right;
-    delete &operation;
+                delete &operation;
 	}
 };
