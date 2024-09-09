@@ -36,27 +36,24 @@ public:
 	}
 
 	void print() {
-		cout << "a = " << firstBigNumber << " b = " << secondBigNumber;
+		cout << "firstBigNumber = " << firstBigNumber << " secondBigNumber = " << secondBigNumber;
 	}
 };
 
 
 class Three : Two
 {
-	double c;
+	double thirdBigNumber;
 public:
-	Three(double x, double y, double z) : Two(x, y)
-	{
-		c = Two::study(x).
-	}
+	Three(double x, double y, double z) : Two(x, y) { thirdBigNumber = Two::study(x); };
 
 	double study(double x) {
 		double minNumber;
 		double temp;
-		temp = Two::study(x)
-		if (temp > c) {
-			minNumber = c;
-			c = temp;
+		temp = Two::study(x);
+		if (temp > thirdBigNumber) {
+			minNumber = thirdBigNumber;
+			thirdBigNumber = temp;
 		}
 		else minNumber = temp;
 		return minNumber;
@@ -64,6 +61,6 @@ public:
 
 	void print() {
 		Two::print();
-		cout << " c = " << c;
+		cout << " thirdBigNumber = " << thirdBigNumber;
 	}
 };
