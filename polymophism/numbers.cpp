@@ -47,7 +47,7 @@ class Three : Two
 public:
 	Three(double x, double y, double z) : Two(x, y)
 	{
-		c = study(z);
+		c = Two::study(x).
 	}
 
 	double study(double x) {
