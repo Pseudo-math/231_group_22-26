@@ -45,12 +45,16 @@ class Three : Two
 {
 	double c;
 public:
-	Three(double x, double y, double z) : Two(x, y), c(Two::study(z)) {}
+	Three(double x, double y, double z) 
+	{
+		Two(x, y);
+		c = study(z);
+	}
 
 	double study(double x) {
 		double minNumber;
 		double temp;
-		temp = Two::study(x);
+		temp = study(x);
 		if (temp > c) {
 			minNumber = c;
 			c = temp;
