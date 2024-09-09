@@ -21,7 +21,7 @@ class Heat : public Payment
 public:
 	Heat(string s, double a): Payment(s), areaInMeters2(a) {}
 	double calculate() {
-		return CostPerMeters2 * area;
+		return CostPerMeters2 * areaInMeters2;
 	}
 };
 
