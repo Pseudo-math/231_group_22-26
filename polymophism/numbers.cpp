@@ -53,7 +53,7 @@ public:
 	double study(double x) {
 		double minNumber;
 		double temp;
-		temp = study(x);
+		temp = Two::study(x)
 		if (temp > c) {
 			minNumber = c;
 			c = temp;
