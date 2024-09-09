@@ -21,7 +21,7 @@ class BinaryOperation : public Expression {
 	  Expression* left,* right;
 	  char operation;
 public:
-	  BinaryOperation(Expression* l, char o, Expression* r): left(l), right(r), operarion(o) {}
+	  BinaryOperation(Expression* l, char o, Expression* r): left(l), right(r), operation(o) {}
 	  double evaluate() {
 		double x = left->evaluate();
 		double y = right->evaluate();
